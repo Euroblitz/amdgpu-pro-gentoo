@@ -15,7 +15,7 @@ This is based on the Arch's AUR port https://wiki.archlinux.org/title/AMDGPU_PRO
 - Replaces AMDGPU driver with the proprietary ones from AMD.
 
 
-## Installation
+## Installation:
 
 Run these commands:
 
@@ -28,6 +28,12 @@ And run the installer as root:
 ```
 ./installer.sh
 ```
+
+## Alternative installation:
+
+- Extract the /usr/lib folder contents to /usr/lib (or lib32)
+- Extract the /usr/lib64 folder contents to /usr/lib64
+- Copy /usr/bin/progl to /usr/bin/progl and ```chmod +x /usr/bin/progl```
 
 ## Usage
 
