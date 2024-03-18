@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# This script applies amdgpu-pro OpenGL driver for specific application.
+# For example, running "$ progl davinci-resolve" will start DR with AMDGPU PRO driver.
+# You can test the difference (GL_VENDOR, GL_RENDERER, GL_VERSION) with glmark2 utility.
+
+progl() {
+    export LD_LIBRARY_PATH="/usr/lib64/amdgpu-pro/:${LD_LIBRARY_PATH}"
+}
+
+progl32() {
+    export LD_LIBRARY_PATH="/usr/lib/amdgpu-pro/:${LD_LIBRARY_PATH}"
+}
+
+if [[ $(basename $0) == progl ]]; then
+    progl
+elif [[ $(basename $0) == progl32 ]]; then
+    progl32
+else
+    echo "Unknown function"
+    exit 1
+fi
+
+"$@"
